@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-sm-4">{{todo.id}}</div>
+  <div class="col-sm-4">
+    <div *ngIf="editMode">
+      <input [(ngModel)]="todo.title"> 
+    </div>    
+    <div *ngIf="!editMode">
+      <label (click)="editMode = !editMode">{{todo.title}} </label>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <span *ngIf="editMode">
+      <span 
+        class="text-button" 
+        (click)="toggleTodo(todo); editMode = !editMode" 
+        style="margin-right: 10px;">
+        &radic;</span>
+    </span>
+        <span class="glyphicon glyphicon-remove" 
+          (click)="removeTodo(todo)"
+          class="text-button">
+          &times;</span>
+  </div>
+</div>

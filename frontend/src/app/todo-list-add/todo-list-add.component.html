@@ -1,0 +1,23 @@
+<div class="row text-center add-new-btn">
+  <div class="col-sm-12">
+    <div *ngIf="addMode">
+        <form>
+            <div class="form-group">
+            <input 
+            name="form"
+            class="new-todo form-control" 
+            placeholder="What needs to be done?" 
+            autofocus="" 
+            [(ngModel)]="newTodo.title"
+            (keyup.enter)="addTodo()">
+            </div>
+        </form>
+    </div>
+    <div *ngIf="!addMode">
+      <button 
+        type="button" 
+        class="btn btn-light"
+        (click)="addMode = !addMode">Add</button>
+    </div>
+  </div>
+</div>
